@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign in — cnxt</title>
-  <meta name="description" content="Sign in to cnxt — free tools for creators and freelancers." />
+  <title>Sign in — FreeSurf</title>
+  <meta name="description" content="Sign in to FreeSurf — free tools for freelancers & small businesses." />
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
   <div class="auth-shell">
     <header class="auth-header">
-      <a href="https://cnxt.to" class="auth-logo">cnxt</a>
-      <p class="auth-subtitle">Free tools for creators &amp; freelancers</p>
+      <a href="https://freesurf.tools" class="auth-logo">FreeSurf</a>
+      <p class="auth-subtitle">Free tools for freelancers &amp; small businesses</p>
     </header>
 
     <main class="auth-card">
@@ -61,13 +61,48 @@
       </form>
 
       <p class="auth-footer-text">
-        By continuing, you agree to the cnxt
+        By continuing, you agree to the FreeSurf
         <a href="/terms.html">Terms</a> and
         <a href="/privacy.html">Privacy Policy</a>.
       </p>
     </main>
   </div>
 
+  <!-- FreeSurf footer -->
+  <footer class="freesurf-footer">
+    <div class="freesurf-footer-inner">
+      <div class="freesurf-footer-brand">
+        <a href="https://freesurf.tools" class="freesurf-footer-logo">FreeSurf</a>
+        <p class="freesurf-footer-tagline">Free tools for freelancers & small businesses. No commissions, no lock-in, open source.</p>
+      </div>
+      <div class="freesurf-footer-links">
+        <div class="freesurf-footer-col">
+          <span class="freesurf-footer-heading">Tools</span>
+          <a href="https://invoices.freesurf.tools">Invoices</a>
+          <a href="https://links.freesurf.tools">Links</a>
+          <a href="https://post.freesurf.tools">Post</a>
+        </div>
+        <div class="freesurf-footer-col">
+          <span class="freesurf-footer-heading">Platform</span>
+          <a href="https://freesurf.tools">Home</a>
+          <a href="https://auth.freesurf.tools">Sign in</a>
+          <a href="https://github.com/freesurf-ecosystem">GitHub</a>
+        </div>
+        <div class="freesurf-footer-col">
+          <span class="freesurf-footer-heading">Legal</span>
+          <a href="https://freesurf.tools/privacy.html">Privacy</a>
+          <a href="https://freesurf.tools/terms.html">Terms</a>
+          <a href="mailto:hello@freesurf.tools">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="freesurf-footer-bottom">
+      <span>&copy; <span class="freesurf-footer-year"></span> FreeSurf. Built for independent workers.</span>
+      <span>Part of the FreeSurf ecosystem of free tools.</span>
+    </div>
+  </footer>
+
+  <script>document.querySelector('.freesurf-footer-year').textContent = new Date().getFullYear();</script>
   <script type="module" src="./js/auth.js"></script>
 </body>
 </html>

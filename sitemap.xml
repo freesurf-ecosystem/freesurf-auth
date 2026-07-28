@@ -3,7 +3,7 @@
 
   <!-- Central auth page -->
   <url>
-    <loc>https://auth.cnxt.to/</loc>
+    <loc>https://auth.freesurf.tools/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

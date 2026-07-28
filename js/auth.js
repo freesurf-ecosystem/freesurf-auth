@@ -1,8 +1,9 @@
 import { getSupabaseClient, isSupabaseConfigured } from "./supabase-client.js";
-import { setSharedSession } from "./cnxt-auth.js";
+import { setSharedSession } from "./freesurf-auth.js";
+import config from "./freesurf.config.js";
 
 const REDIRECT_PARAM = "redirect";
-const DEFAULT_REDIRECT = "https://cnxt.to";
+const DEFAULT_REDIRECT = config.URLS.home;
 
 const signInForm = document.querySelector("#sign-in-form");
 const signUpForm = document.querySelector("#sign-up-form");
@@ -45,10 +46,10 @@ function getRedirectUrl() {
   const redirect = params.get(REDIRECT_PARAM);
   if (!redirect) return DEFAULT_REDIRECT;
 
-  // Only allow redirects to cnxt.to domains
+  // Only allow redirects to freesurf.tools domains
   try {
     const url = new URL(redirect);
-    if (url.hostname.endsWith(".cnxt.to") || url.hostname === "cnxt.to") {
+    if (url.hostname.endsWith("." + config.ROOT_DOMAIN) || url.hostname === config.ROOT_DOMAIN) {
       return redirect;
     }
   } catch {}
@@ -76,8 +77,8 @@ async function getClient() {
 
 // --- Check existing session ---
 // If the user is already signed in on this device, persist the shared
-// .cnxt.to cookie and redirect. This allows post.cnxt.to (and other
-// cnxt tools) to restore the session cross-domain.
+// cookie and redirect. This allows other FreeSurf tools to restore
+// the session cross-domain.
 
 async function checkExistingSession() {
   const client = await getClient();
@@ -113,7 +114,7 @@ signInForm.addEventListener("submit", async (event) => {
     return;
   }
 
-  // Persist session to .cnxt.to cookie for cross-domain auth
+  // Persist session to shared cookie for cross-domain auth
   await setSharedSession();
 
   signInForm.reset();
